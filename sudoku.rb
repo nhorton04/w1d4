@@ -1,5 +1,5 @@
 require_relative "board"
-
+require 'byebug'
 class SudokuGame
   def self.from_file(filename)
     board = Board.from_file(filename)
@@ -11,6 +11,7 @@ class SudokuGame
   end
 
   def get_pos
+
     pos = nil
     until pos && valid_pos?(pos)
       puts "Please enter a position on the board (e.g., '3,4')"
@@ -47,9 +48,12 @@ class SudokuGame
   end
 
   def play_turn
+    # debugger
     board.render
-    val = get_pos
-    pos = get_val
+    pos = get_pos
+    val = get_val
+
+
     board[pos] = val
   end
 
